@@ -1,26 +1,28 @@
-# Usa PHP 8.3 FPM
+# PHP 8.3 FPM
 FROM php:8.3-fpm
 
-# Instala dependencias necesarias
+# Dependencias y extensiones PHP necesarias
 RUN apt-get update && apt-get install -y \
     libzip-dev \
     unzip \
     git \
     curl \
-    && docker-php-ext-install pdo_mysql zip
+    libonig-dev \
+    libxml2-dev \
+    && docker-php-ext-install pdo_mysql mbstring tokenizer xml zip
 
 # Instala Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copia tu proyecto al contenedor
+# Copia el proyecto
 WORKDIR /var/www/html
 COPY . .
 
 # Instala dependencias de Laravel
-RUN composer install --no-interaction
+RUN composer install --no-interaction --optimize-autoloader
 
-# Expone el puerto 9000 para PHP-FPM
+# Expone el puerto PHP-FPM
 EXPOSE 9000
 
-# Comando para ejecutar PHP-FPM
+# Comando para iniciar PHP-FPM
 CMD ["php-fpm"]
