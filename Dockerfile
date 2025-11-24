@@ -22,9 +22,8 @@ RUN composer install --optimize-autoloader --no-dev
 # Dar permisos correctos a storage y cache
 RUN chmod -R 775 storage bootstrap/cache
 
-# Exponer puerto 80
+# Exponer puerto 80 para Render
 EXPOSE 80
 
-# Ejecutar Laravel con el servidor PHP interno
+# ⚠️ Aquí ejecutamos el servidor PHP interno, no PHP-FPM
 CMD ["php", "-S", "0.0.0.0:80", "-t", "public"]
-
