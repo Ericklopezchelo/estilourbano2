@@ -31,4 +31,5 @@ RUN chmod -R 775 storage bootstrap/cache
 EXPOSE 80
 
 # ✅ CMD FINAL: Instala dependencias de Node, compila (Vite) y luego inicia el servidor.
-CMD npm install && npm run build && php -S 0.0.0.0:$PORT -t public
+CMD npm install && npm run build && php -S 0.0.0.0:80 -t public
+
