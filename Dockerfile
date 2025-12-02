@@ -1,4 +1,4 @@
-# Usar PHP 8.2
+# Usar PHP 8.2 (Base con FPM, lo cual es bueno)
 FROM php:8.2
 
 # Instalar Node.js (npm) para la compilación de Vite
@@ -27,9 +27,11 @@ RUN composer install --optimize-autoloader --no-dev
 # Dar permisos correctos a storage y cache
 RUN chmod -R 775 storage bootstrap/cache
 
-# Exponer puerto 80 para Render
+# Exponer puerto (esto es solo informativo para Docker, no afecta a Railway)
 EXPOSE 80
 
-# ✅ CMD FINAL: Instala dependencias de Node, compila (Vite) y luego inicia el servidor.
-CMD npm install && npm run build && php -S 0.0.0.0:80 -t public
-
+# === LÍNEA DE COMANDO CORREGIDA ===
+# 1. Usamos la variable $PORT de Railway.
+# 2. Usamos la forma shell (sin corchetes) para que $PORT se expanda.
+# 3. Este comando npm + php es adecuado para un servidor de desarrollo simple.
+CMD npm install && npm run build && php -S 0.0.0.0:$PORT -t public
