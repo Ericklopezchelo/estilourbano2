@@ -273,5 +273,9 @@
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
+        <div class="text-center mt-10">
+            <h1 class="text-3xl font-bold text-blue-600">¡Tailwind funciona! 🚀</h1>
+            <p class="mt-4 text-lg">Si ves esto con estilo, ya todo está listo.</p>
+        </div>
     </body>
 </html>
