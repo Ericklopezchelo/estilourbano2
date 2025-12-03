@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npx vite build",
     "dev": "vite",
-    "start": "php -S 0.0.0.0:$PORT -t public"
+    "start": "php artisan serve --host=0.0.0.0 --port=$PORT"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.17",
