@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,9 +15,7 @@
             display: flex;
             align-items: center;
         }
-
     </style>
-
 </head>
 <body>
     <!-- menu de navegacion -->
@@ -34,7 +31,7 @@
                     <li><a href="{{ url('/nosotros') }}">Acerca de</a></li>
                     <li><a href="{{ url('/servicios') }}">Servicios</a></li>
                     <li><a href="{{ url('/login_cliente') }}">Reservas</a></li>
-                    <li><a href="{{ url('/login_cliente') }}">Inicia Sesion</a></li>
+                    <li><a href="{{ url('/login_cliente') }}">Inicia Sesión</a></li>
                 </ul>
             </nav>
         </div>
@@ -45,18 +42,15 @@
         </div>
     </header>
 
-
-    
-
     <!-- Sección del blog -->
     <section class="blog container">
         <h2>Blog</h2>
-
+        
         <div class="blog-content">
             <div class="blog-1">
                 <img src="{{ asset('assets/imagen/formas.webp') }}" alt="Blog 1">
                 <h3>Encuentra el corte de cabello perfecto</h3>
-                <p>¿Alguna vez te has preguntado por qué ciertos cortes de cabello le quedan genial a algunos hombres y a otros no tanto? La clave radica en entender la relación entre la forma de tu rostro y el corte de cabello que mejor se adapta a ti. No te preocupes, ¡estamos aquí para ayudarte a descubrirlo!</p>
+                <p>¿Alguna vez te has preguntado por qué ciertos cortes de cabello le quedan genial a algunos hombres y a otros no tanto? La clave radica en entender la relación entre la forma de tu rostro y el corte de cabello que mejor se adapta a ti. No te preocupes, ¡estamos aquí para ayudarte a descubrirlo! </p>
             </div>
             <div class="blog-1">
                 <img src="{{ asset('assets/imagen/caida_del_cabello.webp') }}" alt="Blog 2">
@@ -65,8 +59,9 @@
             </div>
             <div class="blog-1">
                 <img src="{{ asset('assets/imagen/aceite_barba.webp') }}" alt="Blog 3">
-                <h3>¿Que es un aceite para barba?</h3>
-                <p>Son varias las personas que nos escriben preguntando cuales son los beneficios del aceite para barba, para qué sirve y cómo se aplica. Aquí te contamos todos los beneficios de usar aceites para la barba y te recomendamos algunos para que no tengas que pasar horas buscando.</p>
+                <h3>¿Qué es un aceite para barba?</h3>
+                <p>Son varias las personas que nos escriben preguntando cuáles son los beneficios del aceite para barba, para qué sirve y cómo se aplica.
+                Aquí te contamos todos los beneficios de usar aceites para la barba y te recomendamos algunos para que no tengas que pasar horas buscando.</p>
             </div>
         </div>
         <a href="{{ url('/login_cliente') }}" class="btn-1">¡Reserve Ahora!</a>
@@ -89,63 +84,59 @@
 
     <style>
         .footer {
-            background-color:rgb(49, 49, 49);
+            background-color: rgb(49, 49, 49);
             padding: 20px;
             text-align: center;
         }
-        .footer-content{
+        .footer-content {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
             gap: 15px;
         }
-
         .footer-content a {
             width: 50px;
             height: 50px;
             background: white;
             border-radius: 50%;
-            align-items: center;
             display: flex;
+            align-items: center;
             justify-content: center;
             margin: 0 10px;
             transition: transform 0.3s ease;
             text-decoration: none;
         }
-
         .footer-content a img {
             width: 30px;
         }
-
         .footer-content a:hover {
             transform: scale(1.1);
         }
     </style>
 
     <script>
-    document.getElementById('menu').addEventListener('change', function() {
-        const navbar = document.querySelector('.navbar ul');
-        if (this.checked) {
-            navbar.classList.add('active');
-        } else {
-            navbar.classList.remove('active');
-        }
-    });
-
+        document.getElementById('menu').addEventListener('change', function() {
+            const navbar = document.querySelector('.navbar ul');
+            if (this.checked) {
+                navbar.classList.add('active');
+            } else {
+                navbar.classList.remove('active');
+            }
+        });
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @if(session('success'))
     <script>
-    Swal.fire({
-        icon: 'success',
-        title: '{{ session('success') }}',
-        showConfirmButton: false,
-        timer: 2000
-    });
+        Swal.fire({
+            icon: 'success',
+            title: '{{ session('success') }}',
+            showConfirmButton: false,
+            timer: 2000
+        });
     </script>
     @endif
-
 </body>
 </html>
