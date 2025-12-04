@@ -1,4 +1,3 @@
-# Cambiar la primera línea
 FROM php:8.2-apache
 
 # Instalar Node.js para Vite
@@ -24,6 +23,10 @@ RUN chmod -R 775 storage bootstrap/cache
 
 # Habilitar mod_rewrite
 RUN a2enmod rewrite
+
+# Cambiar DocumentRoot a public
+RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
+RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/apache2.conf
 
 # Exponer puerto
 EXPOSE 8080
