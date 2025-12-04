@@ -1,38 +1,32 @@
-# Usar PHP 8.2 (Base con FPM, lo cual es bueno)
-FROM php:8.2
+# Cambiar la primera línea
+FROM php:8.2-apache
 
-# Instalar Node.js (npm) para la compilación de Vite
+# Instalar Node.js para Vite
 RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs
 
-# Instalar dependencias y extensiones necesarias (PostgreSQL)
+# Instalar dependencias PHP necesarias
 RUN apt-get update && apt-get install -y \
     libzip-dev unzip git curl libpq-dev \
-    && docker-php-ext-install pdo_mysql zip bcmath \
-    && docker-php-ext-install pdo_pgsql \
+    && docker-php-ext-install pdo_mysql zip bcmath pdo_pgsql \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Establecer directorio de trabajo
 WORKDIR /var/www/html
 
-# Copiar todos los archivos del proyecto
 COPY . .
 
 # Instalar Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
-# Instalar dependencias de Laravel
 RUN composer install --optimize-autoloader --no-dev
 
-# Dar permisos correctos a storage y cache
+# Permisos
 RUN chmod -R 775 storage bootstrap/cache
 
-# Usamos Apache para servir Laravel
-RUN apt-get update && apt-get install -y apache2 libapache2-mod-php
+# Habilitar mod_rewrite
 RUN a2enmod rewrite
 
-# Exponer el puerto que Railway asignará
+# Exponer puerto
 EXPOSE 8080
 
-# Comando para iniciar Apache y servir desde /var/www/html/public
+# Apache ya arranca automáticamente
 CMD ["apache2-foreground"]
