@@ -5,17 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Barbería</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <style>
-        .header {
-            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('{{ asset('assets/imagen/img2.jpg') }}');
-            background-position: center bottom;
-            background-repeat: no-repeat;
-            background-size: cover;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-    </style>
 </head>
 <body>
     <!-- menu de navegacion -->
