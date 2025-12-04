@@ -1,17 +1,15 @@
 {
-  "$schema": "https://json.schemastore.org/package.json",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npx vite build",
     "dev": "vite",
-    "start": "php artisan serve --host=0.0.0.0 --port=$PORT"
+    "build": "vite build",
+    "start": "php -S 0.0.0.0:$PORT -t public"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.17",
     "autoprefixer": "^10.4.22",
     "axios": "^1.8.2",
-    "concurrently": "^9.0.1",
     "laravel-vite-plugin": "^2.0.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17",
