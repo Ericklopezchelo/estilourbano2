@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <style>
         .header {
-            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(assets/imagen/img2.jpg);
+            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('{{ asset('assets/imagen/img2.jpg') }}');
             background-position: center bottom;
             background-repeat: no-repeat;
             background-size: cover;
@@ -16,8 +16,9 @@
             display: flex;
             align-items: center;
         }
-        
+
     </style>
+
 </head>
 <body>
     <!-- menu de navegacion -->
@@ -26,12 +27,12 @@
             <a href="#" class="logo">Estilo Urbano</a>
             <input type="checkbox" id="menu"/>
             <label for="menu" class="menu-icon">
-                <img src="assets/imagen/menu.png" class="menu-icono" alt="Menú">
+                <img src="{{ asset('assets/imagen/menu.png') }}" class="menu-icono" alt="Menú">
             </label>
             <nav class="navbar">
                 <ul>
-                    <li><a href="{{ url ('/nosotros')}}">Acerca de</a></li>
-                    <li><a href="{{ url ('/servicios')}}">Servicios</a></li>
+                    <li><a href="{{ url('/nosotros') }}">Acerca de</a></li>
+                    <li><a href="{{ url('/servicios') }}">Servicios</a></li>
                     <li><a href="{{ url('/login_cliente') }}">Reservas</a></li>
                     <li><a href="{{ url('/login_cliente') }}">Inicia Sesion</a></li>
                 </ul>
@@ -45,29 +46,27 @@
     </header>
 
 
-
+    
 
     <!-- Sección del blog -->
     <section class="blog container">
         <h2>Blog</h2>
-        
+
         <div class="blog-content">
             <div class="blog-1">
-                <img src="assets/imagen/formas.webp" alt="Blog 1">
+                <img src="{{ asset('assets/imagen/formas.webp') }}" alt="Blog 1">
                 <h3>Encuentra el corte de cabello perfecto</h3>
-                <p>¿Alguna vez te has preguntado por qué ciertos cortes de cabello le quedan genial a algunos hombres y a otros no tanto? La clave radica en entender la relación entre la forma de tu rostro y el corte de cabello que mejor se adapta a ti. No te preocupes, ¡estamos aquí para ayudarte a descubrirlo! </p>
+                <p>¿Alguna vez te has preguntado por qué ciertos cortes de cabello le quedan genial a algunos hombres y a otros no tanto? La clave radica en entender la relación entre la forma de tu rostro y el corte de cabello que mejor se adapta a ti. No te preocupes, ¡estamos aquí para ayudarte a descubrirlo!</p>
             </div>
             <div class="blog-1">
-                <img src="assets/imagen/caida_del_cabello.webp" alt="Blog 2">
+                <img src="{{ asset('assets/imagen/caida_del_cabello.webp') }}" alt="Blog 2">
                 <h3>¿Perdida de cabello en grandes cantidades?</h3>
                 <p>La alopecia es un mal que afecta tanto a hombres como a mujeres, esta es la pérdida del cabello en grandes cantidades. Aquí te diremos como evitarla, las causas más comunes y si la padeces como darle una solución efectiva.</p>
             </div>
             <div class="blog-1">
-                <img src="assets/imagen/aceite_barba.webp" alt="Blog 3">
+                <img src="{{ asset('assets/imagen/aceite_barba.webp') }}" alt="Blog 3">
                 <h3>¿Que es un aceite para barba?</h3>
-                <p>Son varias las personas que nos escriben preguntando cuales son los beneficios del aceite para barba, para qué sirve y cómo se aplica.
-
-            Aquí te contamos todos los beneficios de usar aceites para la barba y te recomendamos algunos para que no tengas que pasar horas buscando.</p>
+                <p>Son varias las personas que nos escriben preguntando cuales son los beneficios del aceite para barba, para qué sirve y cómo se aplica. Aquí te contamos todos los beneficios de usar aceites para la barba y te recomendamos algunos para que no tengas que pasar horas buscando.</p>
             </div>
         </div>
         <a href="{{ url('/login_cliente') }}" class="btn-1">¡Reserve Ahora!</a>
@@ -75,18 +74,19 @@
 
     <!-- Footer -->
     <footer class="footer">
-    <div class="footer-content">
-        <a href="https://www.facebook.com/100063620063677/about/?_rdr" target="_blank">
-            <img src="assets/imagen/facebook.png" alt="facebook" width="40">
-        </a>
-        <a href="https://www.instagram.com/" target="_blank">
-            <img src="assets/imagen/instagram.png" alt="instagram" width="40">
-        </a> 
-        <a href="https://wa.me/59171454425" target="_blank">
-            <img src="assets/imagen/whatsapp.png" alt="whatsaap" width="40">
-        </a>
-    </div>
+        <div class="footer-content">
+            <a href="https://www.facebook.com/100063620063677/about/?_rdr" target="_blank">
+                <img src="{{ asset('assets/imagen/facebook.png') }}" alt="facebook" width="40">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="{{ asset('assets/imagen/instagram.png') }}" alt="instagram" width="40">
+            </a> 
+            <a href="https://wa.me/59171454425" target="_blank">
+                <img src="{{ asset('assets/imagen/whatsapp.png') }}" alt="whatsapp" width="40">
+            </a>
+        </div>
     </footer>
+
     <style>
         .footer {
             background-color:rgb(49, 49, 49);
@@ -95,10 +95,10 @@
         }
         .footer-content{
             display: flex;
-            flex-direction: row; /* Acomoda los elementos en columna */
-            align-items: center; /* Centra los elementos en el eje horizontal */
+            flex-direction: row;
+            align-items: center;
             justify-content: center;
-            gap: 15px; /* Espacio entre los íconos */
+            gap: 15px;
         }
 
         .footer-content a {
@@ -106,7 +106,7 @@
             height: 50px;
             background: white;
             border-radius: 50%;
-            align-items: center; /* Centra los elementos en el eje horizontal */
+            align-items: center;
             display: flex;
             justify-content: center;
             margin: 0 10px;
@@ -122,6 +122,7 @@
             transform: scale(1.1);
         }
     </style>
+
     <script>
     document.getElementById('menu').addEventListener('change', function() {
         const navbar = document.querySelector('.navbar ul');
@@ -131,7 +132,7 @@
             navbar.classList.remove('active');
         }
     });
-    
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
