@@ -1,4 +1,13 @@
 {
-  "build": "composer install && php artisan config:cache && php artisan route:cache && php artisan view:cache",
-  "start": "php -S 0.0.0.0:8080 -t public"
+  "services": [
+    {
+      "name": "app",
+      "build": {
+        "command": "composer install && php artisan config:cache && php artisan route:cache && php artisan view:cache"
+      },
+      "run": {
+        "command": "php -S 0.0.0.0:8080 -t public"
+      }
+    }
+  ]
 }
