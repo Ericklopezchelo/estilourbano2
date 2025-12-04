@@ -18,7 +18,8 @@ COPY . .
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 RUN composer install --optimize-autoloader --no-dev
 
-# Permisos
+# Permisos correctos para Laravel
+RUN chown -R www-data:www-data storage bootstrap/cache
 RUN chmod -R 775 storage bootstrap/cache
 
 # Habilitar mod_rewrite
@@ -31,5 +32,5 @@ RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/apache2.conf
 # Exponer puerto
 EXPOSE 8080
 
-# Apache ya arranca automáticamente
+# Apache arranca automáticamente
 CMD ["apache2-foreground"]
