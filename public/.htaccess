@@ -1,15 +1,19 @@
-<IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-    Header set X-Frame-Options "ALLOWALL"
-    Header set X-Content-Type-Options "nosniff"
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
 
-    Header set Content-Security-Policy "
-        default-src 'self' *;
-        script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.jsdelivr.net/npm;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        img-src 'self' data: https://* http://*;
-        font-src 'self' data: https://fonts.gstatic.com;
-        connect-src 'self' *;
-        media-src 'self' https://*;
-    "
+    RewriteEngine On
+
+    # Redirige todo a index.php si no es archivo o carpeta
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Opcional: Manejo de cabeceras de seguridad (puedes combinar con tu mod_headers)
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+        Header set X-Frame-Options "ALLOWALL"
+        Header set X-Content-Type-Options "nosniff"
+    </IfModule>
 </IfModule>
