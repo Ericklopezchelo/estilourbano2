@@ -27,11 +27,12 @@ RUN composer install --optimize-autoloader --no-dev
 # Dar permisos correctos a storage y cache
 RUN chmod -R 775 storage bootstrap/cache
 
-# Exponer puerto (esto es solo informativo para Docker, no afecta a Railway)
-EXPOSE 80
+# Usamos Apache para servir Laravel
+RUN apt-get update && apt-get install -y apache2 libapache2-mod-php
+RUN a2enmod rewrite
 
-# === LÍNEA DE COMANDO CORREGIDA ===
-# 1. Usamos la variable $PORT de Railway.
-# 2. Usamos la forma shell (sin corchetes) para que $PORT se expanda.
-# 3. Este comando npm + php es adecuado para un servidor de desarrollo simple.
-CMD npm install && npm run build && php -S 0.0.0.0:$PORT -t public
+# Exponer el puerto que Railway asignará
+EXPOSE 8080
+
+# Comando para iniciar Apache y servir desde /var/www/html/public
+CMD ["apache2-foreground"]
