@@ -123,6 +123,16 @@ Route::middleware(['admin'])->group(function () {
     
 });
 
+use Illuminate\Support\Facades\Mail;
+
+Route::get('/test-mail', function () {
+    Mail::raw('Esto es un correo de prueba', function ($message) {
+        $message->to('TU_CORREO@gmail.com') // <- Cambia aquí por tu correo real
+                ->subject('Correo de prueba');
+    });
+
+    return 'Correo enviado';
+});
 
 
 
