@@ -1,8 +1,11 @@
 FROM php:8.2-apache
 
-# 1️⃣ Instalar Node.js para Vite
-RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs
+# 1️⃣ Instalar Node.js para Vite (MÉTODO MÁS ESTABLE)
+RUN apt-get update && \
+    apt-get install -y nodejs npm curl gnupg && \
+    curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs 
+    # Nota: Si lo anterior sigue fallando, usa solo 'RUN apt-get install -y nodejs npm'
 
 # 2️⃣ Instalar dependencias PHP necesarias
 RUN apt-get update && apt-get install -y \
@@ -20,10 +23,10 @@ COPY . .
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 RUN composer install --optimize-autoloader --no-dev
 
-# 6️⃣ Crear carpetas de uploads/imagenes y dar permisos correctos
+# 6️⃣ Crear carpetas de uploads/imagenes y dar permisos correctos (SOLUCIÓN PERMANENTE)
 RUN mkdir -p public/uploads public/imagenes/barberos \
-    && chown -R www-data:www-data storage bootstrap/cache public/uploads public/imagenes/barberos \
-    && chmod -R 775 storage bootstrap/cache public/uploads public/imagenes/barberos
+    && chown -R www-data:www-data storage bootstrap/cache public/uploads public/imagenes/barberos \
+    && chmod -R 775 storage bootstrap/cache public/uploads public/imagenes/barberos
 
 # 7️⃣ Habilitar mod_rewrite de Apache
 RUN a2enmod rewrite
