@@ -123,6 +123,16 @@ Route::middleware(['admin'])->group(function () {
     
 });
 
+use Illuminate\Support\Facades\Mail;
+
+Route::get('/test-mail', function () {
+    Mail::raw('Este es un correo de prueba desde SendGrid en Railway', function ($message) {
+        $message->to('tu_correo@gmail.com') // tu correo para recibir la prueba
+                ->subject('Prueba SendGrid');
+    });
+
+    return 'Correo de prueba enviado!';
+});
 
 
 
