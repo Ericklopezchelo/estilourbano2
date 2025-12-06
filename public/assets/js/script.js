@@ -31,7 +31,7 @@ function iniciarSesion(){
         contenedor_login_register.style.left = "10px";
         formulario_login.style.display = "block";
         caja_trasera_register.style.opacity = "1";
-        caja_trasera_login.style.opaity = "0";
+        caja_trasera_login.style.opacity = "0";
     }else{
         formulario_register.style.display = "none";
         contenedor_login_register.style.left = "0px";
