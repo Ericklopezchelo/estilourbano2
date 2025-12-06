@@ -10,7 +10,8 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\StaffAuthController;
 use App\Http\Controllers\BarberoController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ServicioController;
+
+use Illuminate\Support\Facades\Mail;
 
 // Formulario de recuperar contraseña
 Route::get('/password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
@@ -125,3 +126,15 @@ Route::middleware(['admin'])->group(function () {
 
 
 
+Route::get('/test-mail', function () {
+    try {
+        Mail::raw('Correo de prueba desde Laravel', function ($m) {
+            $m->to('tu-correo-personal@gmail.com')
+              ->subject('Prueba desde Brevo SMTP');
+        });
+
+        return "Correo enviado (si no llega = no salió del servidor)";
+    } catch (\Exception $e) {
+        return "Error: " . $e->getMessage();
+    }
+});
