@@ -13,7 +13,7 @@
             <a href="#" class="logo">Estilo Urbano</a>
             <input type="checkbox" id="menu"/>
             <label for="menu" class="menu-icon">
-                <img src="{{ asset('assets/imagen/menu.png') }}" class="menu-icono" alt="Menú">
+                <img src="{{ asset('assets/imagen/menu.webp') }}" class="menu-icono" alt="Menú">
             </label>
             <nav class="navbar">
                 <ul>
@@ -60,13 +60,13 @@
     <footer class="footer">
         <div class="footer-content">
             <a href="https://www.facebook.com/100063620063677/about/?_rdr" target="_blank">
-                <img src="{{ asset('assets/imagen/facebook.png') }}" alt="facebook" width="40">
+                <img src="{{ asset('assets/imagen/facebook.webp') }}" alt="facebook" width="40">
             </a>
             <a href="https://www.instagram.com/" target="_blank">
-                <img src="{{ asset('assets/imagen/instagram.png') }}" alt="instagram" width="40">
+                <img src="{{ asset('assets/imagen/instagram.webp') }}" alt="instagram" width="40">
             </a> 
             <a href="https://wa.me/59171454425" target="_blank">
-                <img src="{{ asset('assets/imagen/whatsapp.png') }}" alt="whatsapp" width="40">
+                <img src="{{ asset('assets/imagen/whatsapp.webp) }}" alt="whatsapp" width="40">
             </a>
         </div>
     </footer>
