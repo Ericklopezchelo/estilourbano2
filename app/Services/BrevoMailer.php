@@ -5,6 +5,7 @@ namespace App\Services;
 use SendinBlue\Client\Api\TransactionalEmailsApi;
 use SendinBlue\Client\Configuration;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
 
 class BrevoMailer
 {
@@ -35,7 +36,7 @@ class BrevoMailer
             $apiInstance->sendTransacEmail($sendSmtpEmail);
         } catch (\Exception $e) {
             // USAR LOG DE LARAVEL EN LUGAR DE 'echo'
-            \Log::error('Fallo de API Brevo: ' . $e->getMessage()); 
+            Log::error('Fallo de API Brevo: ' . $e->getMessage()); 
         }
     }
 }
