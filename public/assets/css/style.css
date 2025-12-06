@@ -27,7 +27,7 @@ img {
 
 /* Header y Menú */
 .header {
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../imagen/img2.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../imagen/img2.webp);
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
