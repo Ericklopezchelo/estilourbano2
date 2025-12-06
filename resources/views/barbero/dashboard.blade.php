@@ -230,7 +230,7 @@
             @endphp
 
             <img id="avatar-img" 
-            src="{{ $barbero->imagen_perfil ? asset($barbero->imagen_perfil) . '?t=' . time() : asset('assets/imagen/avatar.png') }}" 
+            src="{{ $barbero->imagen_perfil ? asset($barbero->imagen_perfil) . '?t=' . time() : asset('assets/imagen/avatar.webp') }}" 
             alt="Avatar"
             style="width:100px; height:100px; border-radius:50%; object-fit:cover; border:3px solid #fff; box-shadow:0 5px 15px rgba(0,0,0,0.2);"
 
