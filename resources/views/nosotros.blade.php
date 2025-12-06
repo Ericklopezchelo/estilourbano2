@@ -44,13 +44,13 @@
     <footer class="footer">
     <div class="footer-content">
         <a href="https://www.facebook.com/100063620063677/about/?_rdr" target="_blank">
-            <img src="assets/imagen/facebook.png" alt="facebook" width="40">
+            <img src="assets/imagen/facebook.webp" alt="facebook" width="40">
         </a>
         <a href="https://www.instagram.com/" target="_blank">
-            <img src="assets/imagen/instagram.png" alt="instagram" width="40">
+            <img src="assets/imagen/instagram.webp" alt="instagram" width="40">
         </a> 
         <a href="https://wa.me/59171454425" target="_blank">
-            <img src="assets/imagen/whatsapp.png" alt="whatsaap" width="40">
+            <img src="assets/imagen/whatsapp.webp" alt="whatsaap" width="40">
         </a>
     </div>
     </footer>
