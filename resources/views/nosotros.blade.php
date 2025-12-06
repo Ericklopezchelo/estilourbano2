@@ -32,7 +32,8 @@
                     <p>Estamos ubicados San Martin entre honduras  y Ismael Montes</p>
                 </div>
                 <div class="about-image">
-                    <img src="{{ asset('storage/img4.jpg') }}" alt="Acerca De Nosotros">
+                    <img src="{{ asset('assets/imagen/img4.webp') }}" alt="Acerca De Nosotros">
+
                 </div>
             </div>
         </div>
