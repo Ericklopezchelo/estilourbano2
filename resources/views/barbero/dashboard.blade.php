@@ -226,7 +226,7 @@
             @php
                 $avatarPath = $barbero->imagen_perfil && file_exists(public_path($barbero->imagen_perfil))
                             ? asset($barbero->imagen_perfil)
-                            : asset('assets/imagen/avatar.png');
+                            : asset('assets/imagen/avatar.webp');
             @endphp
 
             <img id="avatar-img" 

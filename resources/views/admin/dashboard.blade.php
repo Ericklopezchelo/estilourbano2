@@ -155,7 +155,7 @@
     <div class="sidebar-admin">
         <h2>{{ $admin->nombre }} {{ $admin->apellido }}</h2>
         <p><strong>Email:</strong> {{ $admin->email }}</p>
-        @php $avatar = asset('assets/imagen/barberialogo.jpg'); @endphp
+        @php $avatar = asset('assets/imagen/barberialogo.webp'); @endphp
         <img src="{{ $avatar }}" alt="Avatar">
         <div class="acciones">
             <a onclick="mostrarSeccion('agregar-barberos')">Barberos</a>

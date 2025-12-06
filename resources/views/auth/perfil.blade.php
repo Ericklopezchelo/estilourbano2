@@ -77,7 +77,7 @@
         <p><strong>Email:</strong> {{ $user->email }}</p>
 
         @php
-            $avatar = asset('assets/imagen/avatar.png'); // avatar por defecto
+            $avatar = asset('assets/imagen/avatar.webp'); // avatar por defecto
             if(isset($user->imagen_perfil)) {
                 $avatar = Str::startsWith($user->imagen_perfil, ['http://', 'https://'])
                             ? $user->imagen_perfil   // avatar de Google

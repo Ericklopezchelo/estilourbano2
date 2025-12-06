@@ -8,7 +8,7 @@
         /* Fondo general con imagen */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('{{ asset("assets/imagen/img2.jpg") }}'); /* Imagen de fondo */
+            background-image: url('{{ asset("assets/imagen/img2.webp") }}'); /* Imagen de fondo */
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;

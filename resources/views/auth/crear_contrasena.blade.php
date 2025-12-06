@@ -10,7 +10,7 @@
 /* Fuente general */
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url(../imagen/img2.jpg);
+    background-image: url(../imagen/img2.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

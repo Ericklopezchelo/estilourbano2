@@ -10,7 +10,7 @@
     </style>
 </head>
 <body>
-    <img src="{{ public_path('assets/imagen/barberialogo.jpg') }}" 
+    <img src="{{ public_path('assets/imagen/barberialogo.webp') }}" 
      style="position: absolute; top: 10px; right: 10px; width: 120px;">
 
     <h2>Reporte de Reservas</h2>

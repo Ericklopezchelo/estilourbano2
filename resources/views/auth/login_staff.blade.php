@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('/assets/imagen/img2.jpg');
+            background-image: url('/assets/imagen/img2.webp');
             background-size: cover;
             display: flex;
             justify-content: center;
