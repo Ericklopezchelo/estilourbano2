@@ -19,9 +19,10 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 RUN composer install --optimize-autoloader --no-dev
 
 # 6️⃣ Crear carpetas de uploads/imagenes y dar permisos correctos (SOLUCIÓN DE PERMISOS)
+# ⚡ CAMBIO: agregué public/assets/imagen para que Apache pueda leer todas tus imágenes
 RUN mkdir -p public/uploads public/imagenes/barberos \
-    && chown -R www-data:www-data storage bootstrap/cache public/uploads public/imagenes/barberos \
-    && chmod -R 775 storage bootstrap/cache public/uploads public/imagenes/barberos
+    && chown -R www-data:www-data storage bootstrap/cache public/uploads public/imagenes/barberos public/assets/imagen \
+    && chmod -R 775 storage bootstrap/cache public/uploads public/imagenes/barberos public/assets/imagen
 
 # 7️⃣ Habilitar mod_rewrite de Apache
 RUN a2enmod rewrite
