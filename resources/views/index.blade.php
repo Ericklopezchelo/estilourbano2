@@ -66,7 +66,7 @@
                 <img src="{{ asset('assets/imagen/instagram.webp') }}" alt="instagram" width="40">
             </a> 
             <a href="https://wa.me/59171454425" target="_blank">
-                <img src="{{ asset('assets/imagen/whatsapp.webp) }}" alt="whatsapp" width="40">
+                <img src="{{ asset('assets/imagen/whatsapp.webp') }}" alt="whatsapp" width="40">
             </a>
         </div>
     </footer>
