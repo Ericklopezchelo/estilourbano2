@@ -120,10 +120,6 @@ class ReservasController extends Controller
         ]);
 
 
-        // Reemplaza esta línea:
-// Mail::to($reserva->email)->send(new ReservaConfirmada($reserva));
-
-// Por esto:
 
 
 try {
