@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReservaConfirmada;
 use App\Jobs\EnviarRecordatorioReserva;
-use App\Services\BrevoMailer;
+use Illuminate\Support\Facades\Log;
 
 class ReservasController extends Controller
 {
@@ -126,15 +126,13 @@ class ReservasController extends Controller
 // Por esto:
 
 
-BrevoMailer::sendEmail(
-    $reserva->email, 
-    'Reserva confirmada', 
-    '<p>Hola ' . $reserva->nombre_completo . ', tu reserva ha sido confirmada.</p>
-     <p>Servicio: ' . $reserva->tipo_servicio . '</p>
-     <p>Fecha: ' . $reserva->fecha_reserva . '</p>
-     <p>Hora: ' . $reserva->hora_reserva . ' - ' . $reserva->hora_fin . '</p>
-     <p>Código de reserva: ' . $reserva->codigo_reserva . '</p>'
-);
+try {
+    Mail::to($reserva->email)->send(new ReservaConfirmada($reserva));
+} catch (\Exception $e) {
+    // Si falla el envío, puedes registrar el error en los logs 
+    // pero permitir que la reserva se complete.
+    Log::error('Fallo al enviar correo de confirmación de reserva ' . $reserva->id . ': ' . $e->getMessage());
+}
 
 
         // Programar recordatorio
