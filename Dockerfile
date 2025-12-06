@@ -8,6 +8,17 @@ RUN apt-get update && \
     && docker-php-ext-install pdo_mysql zip bcmath pdo_pgsql \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# 1.1️⃣ Instalar dependencias para GD (png, jpeg, webp)
+RUN apt-get update && apt-get install -y \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libwebp-dev
+
+# 1.2️⃣ Compilar extensión GD con soporte para JPEG, PNG y WEBP
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
+    && docker-php-ext-install gd
+
 # 3️⃣ Establecer directorio de trabajo
 WORKDIR /var/www/html
 
@@ -18,8 +29,7 @@ COPY . .
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 RUN composer install --optimize-autoloader --no-dev
 
-# 6️⃣ Crear carpetas de uploads/imagenes y dar permisos correctos (SOLUCIÓN DE PERMISOS)
-# ⚡ CAMBIO: agregué public/assets/imagen para que Apache pueda leer todas tus imágenes
+# 6️⃣ Crear carpetas de uploads/imagenes y dar permisos correctos
 RUN mkdir -p public/uploads public/imagenes/barberos \
     && chown -R www-data:www-data storage bootstrap/cache public/uploads public/imagenes/barberos public/assets/imagen \
     && chmod -R 775 storage bootstrap/cache public/uploads public/imagenes/barberos public/assets/imagen
